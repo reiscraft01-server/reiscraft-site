@@ -8,130 +8,97 @@ function copiarTexto(texto) {
 
 
 
+const kits = {
+
+    deus: {
+
+        titulo: "👑 VIP Deus",
+
+        imagem: "assets/kit-deus.png",
+
+        texto: `
+        Kit completo do maior rank do ReisCraft.
+        <br><br>
+        Equipamentos e recursos exclusivos para dominar o reino.
+        `
+
+    },
+
+
+    rei: {
+
+        titulo: "🏰 VIP Rei",
+
+        imagem: "assets/kit-rei.png",
+
+        texto: `
+        Um kit poderoso para evoluir dentro do servidor.
+        <br><br>
+        Vantagens e equipamentos especiais.
+        `
+
+    },
+
+
+    supremo: {
+
+        titulo: "⚔ VIP Supremo",
+
+        imagem: "assets/kit-supremo.png",
+
+        texto: `
+        Um dos maiores níveis de poder do ReisCraft.
+        <br><br>
+        Equipamentos avançados e recursos especiais.
+        `
+
+    },
+
+
+    guerreiro: {
+
+        titulo: "🛡 VIP Guerreiro",
+
+        imagem: "assets/kit-guerreiro.png",
+
+        texto: `
+        O começo da sua jornada no reino.
+        <br><br>
+        Recursos essenciais para sobreviver e evoluir.
+        `
+
+    }
+
+};
+
+
+
 
 
 function abrirInfo(vip) {
 
 
     let titulo = document.getElementById("tituloVip");
+
     let texto = document.getElementById("textoVip");
+
     let popup = document.getElementById("popup");
 
 
 
-    if (vip === "deus") {
-
-
-        titulo.innerHTML = "👑 VIP Deus";
-
-
-        texto.innerHTML = `
-
-        <b>Kit Deus exclusivo:</b>
-        <br><br>
-
-        ⚔ Full Netherite<br>
-        🛡 Proteção IV<br>
-        🔨 Inquebrável III<br>
-        🪽 Elytra<br>
-        🟪 64 Obsidians<br>
-        💀 10 Tokens Imortalidade<br>
-        🚀 5x 64 Foguetes<br>
-        👁 80 Ender Pearls<br>
-        🍎 32 Maçãs Douradas Encantadas<br>
-        🍏 15 Maçãs Douradas<br>
-        💎 64 Cristais do Fim
-
-        `;
-
-
-    }
+    titulo.innerHTML = kits[vip].titulo;
 
 
 
+    texto.innerHTML = `
 
-    if (vip === "rei") {
+    <img src="${kits[vip].imagem}" class="kit-img">
 
+    <br><br>
 
-        titulo.innerHTML = "🏰 VIP Rei";
+    ${kits[vip].texto}
 
-
-        texto.innerHTML = `
-
-        <b>Kit Rei:</b>
-        <br><br>
-
-        💎 Full Diamante<br>
-        🛡 Escudo<br>
-        🛡 Proteção IV<br>
-        🔨 Inquebrável III<br>
-        👁 32 Ender Pearls<br>
-        🍎 2 Maçãs Douradas Encantadas<br>
-        🍏 12 Maçãs Douradas<br>
-        🥩 64 Bifes
-
-        `;
-
-
-    }
-
-
-
-
-
-    if (vip === "supremo") {
-
-
-        titulo.innerHTML = "⚔ VIP Supremo";
-
-
-        texto.innerHTML = `
-
-        <b>Kit Supremo:</b>
-        <br><br>
-
-        ⚔ Full Netherite<br>
-        🛡 Proteção IV<br>
-        🔨 Inquebrável III<br>
-        🛡 Escudo<br>
-        👁 64 Ender Pearls<br>
-        🥩 64 Bifes<br>
-        🍏 48 Maçãs Douradas<br>
-        🍎 2 Maçãs Douradas Encantadas<br>
-        💀 2 Tokens Imortalidade
-
-        `;
-
-
-    }
-
-
-
-
-
-    if (vip === "guerreiro") {
-
-
-        titulo.innerHTML = "🛡 VIP Guerreiro";
-
-
-        texto.innerHTML = `
-
-        <b>Kit Guerreiro:</b>
-        <br><br>
-
-        ⚔ Full Ferro<br>
-        🛡 Escudo<br>
-        🛡 Proteção IV<br>
-        🔨 Inquebrável III<br>
-        👁 32 Ender Pearls<br>
-        🥩 64 Bifes<br>
-        🍏 16 Maçãs Douradas
-
-        `;
-
-
-    }
+    `;
 
 
 
@@ -139,6 +106,7 @@ function abrirInfo(vip) {
 
 
 }
+
 
 
 
