@@ -3,8 +3,8 @@ body {
     padding: 0;
 
     background-image: linear-gradient(
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.55)
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.65)
     ), url("assets/background.jpg");
 
     background-size: cover;
@@ -17,109 +17,182 @@ body {
 }
 
 
-/* Cabeçalho */
+/* TOPO */
 
 header {
-    padding: 120px 20px;
-    background: transparent;
+    padding: 80px 20px;
 }
 
 
 .logo {
     width: 280px;
     max-width: 85%;
-    filter: drop-shadow(0 0 15px black);
+    filter: drop-shadow(0 0 20px black);
 }
 
 
 header p {
     font-size: 22px;
-    color: #d8d8d8;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 5px black;
-    margin-top: 20px;
-}
-
-
-/* Botões */
-
-button {
-    background: #55ff55;
-    color: #111;
-
-    border: 2px solid #2b8f2b;
-
-    padding: 15px 35px;
-
-    font-size: 18px;
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-    margin-top: 20px;
-
-    box-shadow: 0 5px 15px black;
-}
-
-
-button:hover {
-    background: #33cc33;
-    transform: scale(1.05);
-}
-
-
-/* Seções */
-
-section {
-    padding: 50px 20px;
-}
-
-
-h2 {
-    color: #00ffff;
-    font-size: 35px;
+    line-height: 1.5;
+    color: #ddd;
     text-shadow: 2px 2px 5px black;
 }
 
 
-/* Cards VIP */
+/* PAINEL DO SERVIDOR */
 
-.vip {
-    display: inline-block;
+.server-box {
 
-    background: rgba(34,34,34,0.9);
+    background: rgba(0,0,0,0.65);
 
-    width: 250px;
+    width: 420px;
+    max-width: 90%;
+
+    margin: 35px auto;
 
     padding: 25px;
-
-    margin: 15px;
 
     border-radius: 15px;
 
     border: 2px solid #55ff55;
 
-    box-shadow: 0 5px 20px black;
+    box-shadow: 0 0 25px black;
+}
+
+
+.server-box h2 {
+    color: #55ff55;
+}
+
+
+.server-box h3 {
+    color: white;
+    font-size: 22px;
+}
+
+
+/* BOTÕES */
+
+button {
+
+    background: #55ff55;
+
+    color: #111;
+
+    border: none;
+
+    padding: 15px 35px;
+
+    font-size: 18px;
+
+    font-family: 'Cinzel', serif;
+
+    font-weight: bold;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+
+    box-shadow: 0 5px 15px black;
+
+}
+
+
+button:hover {
+
+    background: #33cc33;
+
+    transform: scale(1.05);
+
+}
+
+
+/* SEÇÕES */
+
+section {
+
+    padding: 50px 20px;
+
+}
+
+
+h2 {
+
+    color: #00ffff;
+
+    font-size: 35px;
+
+    text-shadow: 2px 2px 5px black;
+
+}
+
+
+/* VIP */
+
+.vip {
+
+    display: inline-block;
+
+    vertical-align: top;
+
+    background: rgba(20,20,20,0.85);
+
+    width: 300px;
+
+    min-height: 420px;
+
+    padding: 30px;
+
+    margin: 15px;
+
+    border-radius: 20px;
+
+    border: 2px solid #55ff55;
+
+    box-shadow: 0 0 25px black;
+
 }
 
 
 .vip h3 {
+
     color: #55ff55;
+
     font-size: 28px;
+
+}
+
+
+.vip h4 {
+
+    color: #ffd700;
+
+    font-size: 24px;
+
 }
 
 
 .vip p {
-    font-size: 18px;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
 }
 
 
-/* Rodapé */
+/* RODAPÉ */
 
 footer {
-    padding: 20px;
-    background: #050505;
+
+    padding: 30px;
+
+    background: rgba(0,0,0,0.8);
+
+    font-family: Arial, sans-serif;
+
 }
