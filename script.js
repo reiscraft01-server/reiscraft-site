@@ -7,61 +7,60 @@ let carrinho = [];
 
 const kits = {
 
-    deus: {
 
-        titulo: "👑 VIP Deus",
+    ferro: {
 
-        imagem: "assets/kit-deus.png",
+        titulo: "🛡 VIP Ferro",
 
-        texto: `
-        Kit Deus exclusivo<br><br>
-
-        Full Netherite<br>
-        Proteção IV<br>
-        Inquebrável III<br>
-        Elytra<br>
-        64 Obsidians<br>
-        10 Tokens Imortalidade<br>
-        5x 64 Foguetes<br>
-        80 Ender Pearls<br>
-        32 Maçãs Douradas Encantadas<br>
-        15 Maçãs Douradas<br>
-        64 Cristais do Fim
-        `
-
-    },
-
-
-    rei: {
-
-        titulo: "🏰 VIP Rei",
-
-        imagem: "assets/kit-rei.png",
+        imagem: "assets/kit-guerreiro.png",
 
         texto: `
-        Kit Rei exclusivo<br><br>
+        Kit Ferro exclusivo<br><br>
 
-        Full Diamante<br>
+        Full Ferro<br>
         Escudo<br>
         Proteção IV<br>
         Inquebrável III<br>
         32 Ender Pearls<br>
-        2 Maçãs Douradas Encantadas<br>
-        12 Maçãs Douradas<br>
-        64 Bifes
+        64 Bifes<br>
+        16 Maçãs Douradas
         `
 
     },
 
 
-    supremo: {
 
-        titulo: "⚔ VIP Supremo",
+    diamante: {
+
+        titulo: "💎 VIP Diamante",
 
         imagem: "assets/kit-supremo.png",
 
         texto: `
-        Kit Supremo exclusivo<br><br>
+        Kit Diamante exclusivo<br><br>
+
+        Full Diamante<br>
+        Proteção IV<br>
+        Inquebrável III<br>
+        Escudo<br>
+        32 Ender Pearls<br>
+        64 Bifes<br>
+        12 Maçãs Douradas<br>
+        1 Maçã Dourada Encantada
+        `
+
+    },
+
+
+
+    netherite: {
+
+        titulo: "⚔ VIP Netherite",
+
+        imagem: "assets/kit-rei.png",
+
+        texto: `
+        Kit Netherite exclusivo<br><br>
 
         Full Netherite<br>
         Proteção IV<br>
@@ -77,31 +76,33 @@ const kits = {
     },
 
 
-    guerreiro: {
 
-        titulo: "🛡 VIP Guerreiro",
+    rei: {
 
-        imagem: "assets/kit-guerreiro.png",
+        titulo: "👑 VIP Rei",
+
+        imagem: "assets/kit-deus.png",
 
         texto: `
-        Kit Guerreiro exclusivo<br><br>
+        Kit Rei exclusivo<br><br>
 
-        Full Ferro<br>
-        Escudo<br>
+        Full Netherite<br>
         Proteção IV<br>
         Inquebrável III<br>
-        32 Ender Pearls<br>
-        64 Bifes<br>
-        16 Maçãs Douradas
+        Elytra<br>
+        64 Obsidians<br>
+        10 Tokens Imortalidade<br>
+        5x 64 Foguetes<br>
+        80 Ender Pearls<br>
+        32 Maçãs Douradas Encantadas<br>
+        15 Maçãs Douradas<br>
+        64 Cristais do Fim
         `
 
     }
 
+
 };
-
-
-
-
 // ==========================
 // POPUP SAIBA MAIS
 // ==========================
@@ -132,6 +133,9 @@ function fecharInfo(){
     document.getElementById("popup").style.display = "none";
 
 }
+
+
+
 // ==========================
 // ADICIONAR AO CARRINHO
 // ==========================
@@ -153,7 +157,7 @@ function adicionarCarrinho(nome, preco, tipo){
     if(ehVip){
 
 
-        // tira qualquer VIP anterior
+        // remove qualquer VIP anterior
 
         carrinho = carrinho.filter(item => item.tipo !== "vip");
 
@@ -244,8 +248,6 @@ function alterarQuantidade(nome, valor){
     if(!produto) return;
 
 
-
-    // só serviços podem aumentar
 
     if(produto.tipo === "vip"){
 
@@ -359,25 +361,25 @@ function atualizarCarrinho(){
 
 
 
-        if(item.nome.includes("VIP Deus")){
+        if(item.nome.includes("VIP Rei")){
 
             imagem = "assets/vip-deus.png";
 
         }
 
-        else if(item.nome.includes("VIP Rei")){
+        else if(item.nome.includes("VIP Netherite")){
 
             imagem = "assets/vip-rei.png";
 
         }
 
-        else if(item.nome.includes("VIP Supremo")){
+        else if(item.nome.includes("VIP Diamante")){
 
             imagem = "assets/vip-supremo.png";
 
         }
 
-        else if(item.nome.includes("VIP Guerreiro")){
+        else if(item.nome.includes("VIP Ferro")){
 
             imagem = "assets/vip-guerreiro.png";
 
