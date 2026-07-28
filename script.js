@@ -2,18 +2,12 @@ let carrinho = [];
 
 
 
-// PRODUTOS VIP
-
 const kits = {
 
     deus: {
-
         titulo: "👑 VIP Deus",
-
         imagem: "assets/kit-deus.png",
-
-        texto:
-        `
+        texto: `
         Kit Deus exclusivo<br><br>
         Full Netherite<br>
         Proteção IV<br>
@@ -27,18 +21,13 @@ const kits = {
         15 Maçãs Douradas<br>
         64 Cristais do Fim
         `
-
     },
 
 
     rei: {
-
         titulo: "🏰 VIP Rei",
-
         imagem: "assets/kit-rei.png",
-
-        texto:
-        `
+        texto: `
         Kit Rei exclusivo<br><br>
         Full Diamante<br>
         Escudo<br>
@@ -49,18 +38,13 @@ const kits = {
         12 Maçãs Douradas<br>
         64 Bifes
         `
-
     },
 
 
     supremo: {
-
         titulo: "⚔ VIP Supremo",
-
         imagem: "assets/kit-supremo.png",
-
-        texto:
-        `
+        texto: `
         Kit Supremo exclusivo<br><br>
         Full Netherite<br>
         Proteção IV<br>
@@ -72,18 +56,13 @@ const kits = {
         2 Maçãs Douradas Encantadas<br>
         2 Tokens Imortalidade
         `
-
     },
 
 
     guerreiro: {
-
         titulo: "🛡 VIP Guerreiro",
-
         imagem: "assets/kit-guerreiro.png",
-
-        texto:
-        `
+        texto: `
         Kit Guerreiro exclusivo<br><br>
         Full Ferro<br>
         Escudo<br>
@@ -93,7 +72,6 @@ const kits = {
         64 Bifes<br>
         16 Maçãs Douradas
         `
-
     }
 
 };
@@ -102,20 +80,15 @@ const kits = {
 
 
 
-// SAIBA MAIS
-
 function abrirInfo(vip){
 
     document.getElementById("popup").style.display = "flex";
 
-
     document.getElementById("tituloVip").innerHTML =
     kits[vip].titulo;
 
-
     document.getElementById("textoVip").innerHTML =
     kits[vip].texto;
-
 
     document.getElementById("imagemKit").src =
     kits[vip].imagem;
@@ -134,17 +107,10 @@ function fecharInfo(){
 
 
 
-
-
-
-// CARRINHO
-
-
 function adicionarCarrinho(nome, preco, tipo){
 
 
     if(tipo === "vip"){
-
 
         carrinho = carrinho.filter(item => item.tipo !== "vip");
 
@@ -152,11 +118,8 @@ function adicionarCarrinho(nome, preco, tipo){
         carrinho.push({
 
             nome:nome,
-
             preco:preco,
-
             tipo:"vip",
-
             quantidade:1
 
         });
@@ -165,13 +128,12 @@ function adicionarCarrinho(nome, preco, tipo){
     } else {
 
 
-        let existente = carrinho.find(item => item.nome === nome);
+        let item = carrinho.find(produto => produto.nome === nome);
 
 
+        if(item){
 
-        if(existente){
-
-            existente.quantidade++;
+            item.quantidade++;
 
         } else {
 
@@ -179,28 +141,20 @@ function adicionarCarrinho(nome, preco, tipo){
             carrinho.push({
 
                 nome:nome,
-
                 preco:preco,
-
                 tipo:"servico",
-
                 quantidade:1
 
             });
 
         }
 
-
     }
 
 
     atualizarCarrinho();
 
-
 }
-
-
-
 
 
 
@@ -208,16 +162,12 @@ function adicionarCarrinho(nome, preco, tipo){
 
 function removerCarrinho(nome){
 
-
-    carrinho = carrinho.filter(item => item.nome !== nome);
-
+    carrinho =
+    carrinho.filter(item => item.nome !== nome);
 
     atualizarCarrinho();
 
-
 }
-
-
 
 
 
@@ -227,24 +177,20 @@ function removerCarrinho(nome){
 function atualizarCarrinho(){
 
 
-    let lista =
-    document.getElementById("cart-items");
+    let lista = document.getElementById("cart-items");
+
+    let contador = document.getElementById("cart-count");
+
+    let total = document.getElementById("cart-total");
 
 
-    let contador =
-    document.getElementById("cart-count");
-
-
-    let total =
-    document.getElementById("cart-total");
-
+    if(!lista) return;
 
 
     lista.innerHTML = "";
 
 
-
-    let valorTotal = 0;
+    let valor = 0;
 
     let quantidade = 0;
 
@@ -252,10 +198,8 @@ function atualizarCarrinho(){
 
     if(carrinho.length === 0){
 
-
         lista.innerHTML =
         "<p>Seu carrinho está vazio.</p>";
-
 
     }
 
@@ -264,9 +208,7 @@ function atualizarCarrinho(){
     carrinho.forEach(item => {
 
 
-
-        valorTotal += item.preco * item.quantidade;
-
+        valor += item.preco * item.quantidade;
 
         quantidade += item.quantidade;
 
@@ -274,40 +216,27 @@ function atualizarCarrinho(){
 
         lista.innerHTML += `
 
-
         <div class="cart-item">
-
 
         <b>${item.nome}</b>
 
-
         <br>
-
 
         Quantidade: ${item.quantidade}
 
-
         <br>
 
-
-        R$ ${(item.preco * item.quantidade).toFixed(2).replace(".",",")}
-
+        R$ ${(item.preco * item.quantidade)
+        .toFixed(2)
+        .replace(".",",")}
 
         <button onclick="removerCarrinho('${item.nome}')">
-
         ❌
-
         </button>
-
 
         </div>
 
-
-        <hr>
-
-
         `;
-
 
 
     });
@@ -317,14 +246,11 @@ function atualizarCarrinho(){
     contador.innerHTML = quantidade;
 
 
-
     total.innerHTML =
-    "Total: R$ " +
-    valorTotal.toFixed(2).replace(".",",");
+    "Total: R$ " + valor.toFixed(2).replace(".",",");
 
 
 }
-
 
 
 
@@ -334,25 +260,33 @@ function atualizarCarrinho(){
 
 function abrirCarrinho(){
 
-    document.getElementById("cart-panel").style.right = "0";
+    const painel = document.getElementById("cart-panel");
 
-    document.getElementById("cart-overlay").style.display = "block";
+    const fundo = document.getElementById("cart-overlay");
+
+
+    painel.style.right = "0px";
+
+    fundo.style.display = "block";
 
 }
+
 
 
 
 
 function fecharCarrinho(){
 
-    document.getElementById("cart-panel").style.right = "-450px";
+    const painel = document.getElementById("cart-panel");
 
-    document.getElementById("cart-overlay").style.display = "none";
+    const fundo = document.getElementById("cart-overlay");
+
+
+    painel.style.right = "-450px";
+
+    fundo.style.display = "none";
 
 }
-
-
-
 
 
 
@@ -368,19 +302,10 @@ function finalizarCompra(){
 
 
 
-
-
-
-// COPIAR IP
-
-
 function copiarTexto(texto){
-
 
     navigator.clipboard.writeText(texto);
 
-
     alert("Copiado: " + texto);
-
 
 }
