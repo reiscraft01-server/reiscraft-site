@@ -58,7 +58,6 @@ header p {
     border: 2px solid #d4af37;
 
     box-shadow: 0 0 25px black;
-
 }
 
 
@@ -83,9 +82,9 @@ button {
 
     border: none;
 
-    padding: 15px 35px;
+    padding: 14px 30px;
 
-    font-size: 18px;
+    font-size: 17px;
 
     font-family: 'Cinzel', serif;
 
@@ -95,9 +94,11 @@ button {
 
     cursor: pointer;
 
-    margin-top: 15px;
+    margin: 8px;
 
     box-shadow: 0 5px 15px black;
+
+    transition: 0.2s;
 
 }
 
@@ -133,7 +134,7 @@ h2 {
 
 
 
-/* CARDS VIP */
+/* CARD VIP */
 
 .vip {
 
@@ -151,7 +152,7 @@ h2 {
 
     width: 300px;
 
-    height: 520px;
+    min-height: 560px;
 
     padding: 25px;
 
@@ -171,29 +172,37 @@ h2 {
 
 /* ÁREA DA IMAGEM */
 
-.vip-img {
+.vip-image-box {
 
-    width: 180px;
+    width: 100%;
 
-    height: 180px;
+    height: 190px;
 
-    max-width: 180px;
+    display: flex;
 
-    max-height: 180px;
+    align-items: center;
 
-    object-fit: contain;
+    justify-content: center;
 
-    display: block;
-
-    flex-shrink: 0;
-
-    margin: 0 auto 20px;
+    overflow: hidden;
 
 }
 
 
 
-/* TEXTO VIP */
+.vip-img {
+
+    max-width: 100%;
+
+    max-height: 180px;
+
+    object-fit: contain;
+
+}
+
+
+
+/* TEXTO */
 
 .vip h3 {
 
@@ -201,7 +210,7 @@ h2 {
 
     font-size: 28px;
 
-    margin: 10px 0;
+    margin: 15px 0 5px;
 
 }
 
@@ -212,7 +221,7 @@ h2 {
 
     font-size: 24px;
 
-    margin: 10px 0;
+    margin: 5px;
 
 }
 
@@ -221,9 +230,110 @@ h2 {
 
     font-family: Arial, sans-serif;
 
-    line-height: 1.7;
+    line-height: 1.6;
 
     font-size: 16px;
+
+    min-height: 80px;
+
+}
+
+
+
+/* BOTÃO SAIBA MAIS */
+
+.info-btn {
+
+    background: #333;
+
+    color: white;
+
+}
+
+
+.info-btn:hover {
+
+    background: #555;
+
+}
+
+
+
+/* POPUP */
+
+.popup {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0,0,0,0.75);
+
+    z-index: 999;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+.popup-content {
+
+    background: #151515;
+
+    width: 350px;
+
+    max-width: 85%;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 2px solid #d4af37;
+
+    box-shadow: 0 0 40px black;
+
+}
+
+
+
+.popup-content h2 {
+
+    color: #ffd700;
+
+    font-size: 28px;
+
+}
+
+
+
+.popup-content p {
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.8;
+
+}
+
+
+
+.close {
+
+    float: right;
+
+    cursor: pointer;
+
+    font-size: 22px;
 
 }
 
@@ -282,18 +392,21 @@ footer {
 
         max-width:300px;
 
-        height:auto;
+        min-height:520px;
 
-        min-height:470px;
+    }
+
+
+    .vip-image-box {
+
+        height:160px;
 
     }
 
 
     .vip-img {
 
-        width:140px;
-
-        height:140px;
+        max-height:150px;
 
     }
 
@@ -301,8 +414,6 @@ footer {
     button {
 
         width:90%;
-
-        max-width:300px;
 
     }
 
