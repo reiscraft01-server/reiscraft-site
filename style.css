@@ -4,7 +4,7 @@ body {
 
     background-image: linear-gradient(
         rgba(0,0,0,0.45),
-        rgba(0,0,0,0.65)
+        rgba(0,0,0,0.75)
     ), url("assets/background.jpg");
 
     background-size: cover;
@@ -43,7 +43,7 @@ header p {
 
 .server-box {
 
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.70);
 
     width: 420px;
     max-width: 90%;
@@ -54,14 +54,14 @@ header p {
 
     border-radius: 15px;
 
-    border: 2px solid #55ff55;
+    border: 2px solid #c9a227;
 
     box-shadow: 0 0 25px black;
 }
 
 
 .server-box h2 {
-    color: #55ff55;
+    color: #ffd700;
 }
 
 
@@ -75,7 +75,7 @@ header p {
 
 button {
 
-    background: #55ff55;
+    background: #ffd700;
 
     color: #111;
 
@@ -102,7 +102,7 @@ button {
 
 button:hover {
 
-    background: #33cc33;
+    background: #e6b800;
 
     transform: scale(1.05);
 
@@ -129,19 +129,25 @@ h2 {
 }
 
 
-/* VIP */
+/* CARDS VIP */
 
 .vip {
 
-    display: inline-block;
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
 
     vertical-align: top;
 
-    background: rgba(20,20,20,0.85);
+    background: rgba(15,15,15,0.90);
 
     width: 300px;
 
-    min-height: 420px;
+    min-height: 450px;
 
     padding: 30px;
 
@@ -149,16 +155,24 @@ h2 {
 
     border-radius: 20px;
 
-    border: 2px solid #55ff55;
+    border: 2px solid #c9a227;
 
-    box-shadow: 0 0 25px black;
+    box-shadow: 0 0 30px rgba(0,0,0,0.9);
+
+    overflow: hidden;
 
 }
+
+
+/* IMAGENS DOS VIPS */
+
 .vip-img {
 
-    width: 180px;
+    width: 150px;
 
-    height: 180px;
+    height: 150px;
+
+    max-width: 100%;
 
     object-fit: contain;
 
@@ -169,20 +183,27 @@ h2 {
 }
 
 
+
+/* TITULO VIP */
+
 .vip h3 {
 
-    color: #55ff55;
+    color: #ffd700;
 
     font-size: 28px;
+
+    margin: 10px 0;
 
 }
 
 
 .vip h4 {
 
-    color: #ffd700;
+    color: #00ffff;
 
     font-size: 24px;
+
+    margin: 10px 0;
 
 }
 
@@ -204,8 +225,66 @@ footer {
 
     padding: 30px;
 
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85);
 
     font-family: Arial, sans-serif;
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+
+    header {
+        padding: 50px 15px;
+    }
+
+
+    .logo {
+        width: 220px;
+    }
+
+
+    header p {
+        font-size: 18px;
+    }
+
+
+    h2 {
+        font-size: 28px;
+    }
+
+
+    .vip {
+
+        width: 85%;
+
+        max-width: 300px;
+
+        min-height: auto;
+
+        padding: 25px;
+
+    }
+
+
+    .vip-img {
+
+        width: 130px;
+
+        height: 130px;
+
+    }
+
+
+    button {
+
+        width: 90%;
+
+        max-width: 300px;
+
+    }
 
 }
