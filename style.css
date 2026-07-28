@@ -154,6 +154,19 @@ h2 {
     box-shadow: 0 0 25px black;
 
 }
+.vip-img {
+
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 15px;
+
+}
 
 
 .vip h3 {
