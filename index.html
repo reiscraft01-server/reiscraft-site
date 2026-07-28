@@ -22,7 +22,6 @@
 
 <img src="assets/logo.png" class="logo">
 
-
 <p>
 Servidor Minecraft Semi-Anarquia<br>
 Java + Bedrock
@@ -33,22 +32,16 @@ Java + Bedrock
 
 <h2>⚔ Entre no Reino</h2>
 
-
 <h3>Java Edition</h3>
 
-<p>
-reiscraft.online
-</p>
-
+<p>reiscraft.online</p>
 
 <button onclick="copiarTexto('reiscraft.online')">
 📋 Copiar IP
 </button>
 
 
-
 <hr>
-
 
 
 <h3>Bedrock Edition</h3>
@@ -59,21 +52,17 @@ br-asc-01streethosting.com.br
 Porta: 25586
 </p>
 
-
 <button onclick="copiarTexto('br-asc-01streethosting.com.br:25586')">
 📋 Copiar Bedrock
 </button>
-
 
 </div>
 
 
 <a href="https://discord.gg/EwkmdXvfQ" target="_blank">
-
 <button>
 🎮 Entrar no Discord
 </button>
-
 </a>
 
 
@@ -102,11 +91,11 @@ O mundo pertence aos jogadores.
 
 
 
+
+
 <section>
 
-
 <h2>Loja VIP</h2>
-
 
 
 
@@ -117,16 +106,14 @@ O mundo pertence aos jogadores.
 <img src="assets/vip-deus.png" class="vip-img">
 </div>
 
-
 <h3>👑 VIP Deus</h3>
 
 <h4>R$ 48,99</h4>
 
-
 <p>
 O maior nível de poder do Reis Craft.
 <br><br>
-Benefícios exclusivos e equipamentos especiais.
+Benefícios exclusivos.
 </p>
 
 
@@ -134,13 +121,13 @@ Benefícios exclusivos e equipamentos especiais.
 Comprar
 </button>
 
-<button class="info-btn">
+
+<button class="info-btn" onclick="abrirInfo('deus')">
 📜 Saiba mais
 </button>
 
 
 </div>
-
 
 
 
@@ -154,16 +141,12 @@ Comprar
 <img src="assets/vip-rei.png" class="vip-img">
 </div>
 
-
 <h3>🏰 VIP Rei</h3>
 
 <h4>R$ 8,99</h4>
 
-
 <p>
-Conquiste vantagens dentro do servidor.
-<br><br>
-Mais recursos para sua jornada.
+Vantagens para evoluir dentro do servidor.
 </p>
 
 
@@ -171,13 +154,13 @@ Mais recursos para sua jornada.
 Comprar
 </button>
 
-<button class="info-btn">
+
+<button class="info-btn" onclick="abrirInfo('rei')">
 📜 Saiba mais
 </button>
 
 
 </div>
-
 
 
 
@@ -191,16 +174,12 @@ Comprar
 <img src="assets/vip-supremo.png" class="vip-img">
 </div>
 
-
 <h3>⚔ VIP Supremo</h3>
 
 <h4>R$ 18,99</h4>
 
-
 <p>
-Equipamentos avançados e benefícios especiais.
-<br><br>
-Prepare-se para dominar o mundo.
+Equipamentos e benefícios avançados.
 </p>
 
 
@@ -208,13 +187,13 @@ Prepare-se para dominar o mundo.
 Comprar
 </button>
 
-<button class="info-btn">
+
+<button class="info-btn" onclick="abrirInfo('supremo')">
 📜 Saiba mais
 </button>
 
 
 </div>
-
 
 
 
@@ -228,16 +207,12 @@ Comprar
 <img src="assets/vip-guerreiro.png" class="vip-img">
 </div>
 
-
 <h3>🛡 VIP Guerreiro</h3>
 
 <h4>R$ 5,99</h4>
 
-
 <p>
 O primeiro passo para evoluir.
-<br><br>
-Tenha vantagens no começo da aventura.
 </p>
 
 
@@ -245,13 +220,13 @@ Tenha vantagens no começo da aventura.
 Comprar
 </button>
 
-<button class="info-btn">
+
+<button class="info-btn" onclick="abrirInfo('guerreiro')">
 📜 Saiba mais
 </button>
 
 
 </div>
-
 
 
 </section>
@@ -263,12 +238,10 @@ Comprar
 
 
 
+
 <section>
 
-
 <h2>Serviços</h2>
-
-
 
 
 
@@ -284,10 +257,8 @@ Comprar
 
 <h4>R$ 2,50</h4>
 
-
 <p>
-Adicione um novo ponto de teleporte
-para facilitar sua sobrevivência.
+Adicione um novo ponto de teleporte.
 </p>
 
 
@@ -297,7 +268,6 @@ Comprar
 
 
 </div>
-
 
 
 
@@ -317,10 +287,8 @@ Comprar
 
 <h4>R$ 49,99</h4>
 
-
 <p>
-Recupere seu acesso ao servidor
-e volte para o mundo do Reis Craft.
+Recupere seu acesso ao reino.
 </p>
 
 
@@ -332,8 +300,38 @@ Comprar
 </div>
 
 
-
 </section>
+
+
+
+
+
+
+
+
+<!-- JANELA SAIBA MAIS -->
+
+<div id="popup" class="popup">
+
+
+<div class="popup-content">
+
+
+<span onclick="fecharInfo()" class="close">
+✖
+</span>
+
+
+<h2 id="tituloVip"></h2>
+
+
+<p id="textoVip"></p>
+
+
+</div>
+
+
+</div>
 
 
 
@@ -344,29 +342,22 @@ Comprar
 
 <footer>
 
-
 <p>
 Discord:
 <br>
-
 <a href="https://discord.gg/EwkmdXvfQ">
 discord.gg/EwkmdXvfQ
 </a>
-
 </p>
-
 
 
 <p>
 Instagram:
 <br>
-
 <a href="https://www.instagram.com/reiscraftserver/">
 @reiscraftserver
 </a>
-
 </p>
-
 
 
 <p>
