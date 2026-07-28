@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+
     background-image: linear-gradient(
         rgba(0,0,0,0.35),
         rgba(0,0,0,0.55)
@@ -11,9 +12,10 @@ body {
     background-attachment: fixed;
 
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Cinzel', serif;
     text-align: center;
 }
+
 
 /* Cabeçalho */
 
@@ -23,16 +25,20 @@ header {
 }
 
 
-h1 {
-    font-size: 70px;
-    color: #55ff55;
-    margin-bottom: 10px;
-    text-shadow: 3px 3px 8px black;
+.logo {
+    width: 280px;
+    max-width: 85%;
+    filter: drop-shadow(0 0 15px black);
 }
 
 
 header p {
-    font-size: 24px;
+    font-size: 22px;
+    color: #d8d8d8;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px black;
+    margin-top: 20px;
 }
 
 
@@ -41,17 +47,27 @@ header p {
 button {
     background: #55ff55;
     color: #111;
-    border: none;
+
+    border: 2px solid #2b8f2b;
+
     padding: 15px 35px;
+
     font-size: 18px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+
     border-radius: 10px;
+
     cursor: pointer;
     margin-top: 20px;
+
+    box-shadow: 0 5px 15px black;
 }
 
 
 button:hover {
     background: #33cc33;
+    transform: scale(1.05);
 }
 
 
@@ -65,6 +81,7 @@ section {
 h2 {
     color: #00ffff;
     font-size: 35px;
+    text-shadow: 2px 2px 5px black;
 }
 
 
@@ -72,12 +89,20 @@ h2 {
 
 .vip {
     display: inline-block;
-    background: #222;
+
+    background: rgba(34,34,34,0.9);
+
     width: 250px;
+
     padding: 25px;
+
     margin: 15px;
+
     border-radius: 15px;
+
     border: 2px solid #55ff55;
+
+    box-shadow: 0 5px 20px black;
 }
 
 
@@ -97,10 +122,4 @@ h2 {
 footer {
     padding: 20px;
     background: #050505;
-}
-
-.logo {
-    width: 280px;
-    max-width: 85%;
-    filter: drop-shadow(0 0 15px black);
 }
