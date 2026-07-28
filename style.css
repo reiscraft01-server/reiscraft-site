@@ -1183,3 +1183,18 @@ footer {
 
 
 }
+.cart-product-img {
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:0 auto 15px;
+
+    filter:drop-shadow(0 0 10px black);
+
+}
