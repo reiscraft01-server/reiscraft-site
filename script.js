@@ -8,11 +8,8 @@ let carrinho = [];
 const kits = {
 
     deus: {
-
         titulo: "👑 VIP Deus",
-
         imagem: "assets/kit-deus.png",
-
         texto: `
         Kit Deus exclusivo<br><br>
         Full Netherite<br>
@@ -31,11 +28,8 @@ const kits = {
 
 
     rei: {
-
         titulo: "🏰 VIP Rei",
-
         imagem: "assets/kit-rei.png",
-
         texto: `
         Kit Rei exclusivo<br><br>
         Full Diamante<br>
@@ -51,11 +45,8 @@ const kits = {
 
 
     supremo: {
-
         titulo: "⚔ VIP Supremo",
-
         imagem: "assets/kit-supremo.png",
-
         texto: `
         Kit Supremo exclusivo<br><br>
         Full Netherite<br>
@@ -72,11 +63,8 @@ const kits = {
 
 
     guerreiro: {
-
         titulo: "🛡 VIP Guerreiro",
-
         imagem: "assets/kit-guerreiro.png",
-
         texto: `
         Kit Guerreiro exclusivo<br><br>
         Full Ferro<br>
@@ -95,7 +83,7 @@ const kits = {
 
 
 // ==========================
-// POPUP
+// POPUP SAIBA MAIS
 // ==========================
 
 
@@ -103,14 +91,11 @@ function abrirInfo(vip){
 
     document.getElementById("popup").style.display = "flex";
 
-
     document.getElementById("tituloVip").innerHTML =
     kits[vip].titulo;
 
-
     document.getElementById("textoVip").innerHTML =
     kits[vip].texto;
-
 
     document.getElementById("imagemKit").src =
     kits[vip].imagem;
@@ -128,63 +113,79 @@ function fecharInfo(){
 
 
 
+
 // ==========================
-// CARRINHO
+// ADICIONAR AO CARRINHO
 // ==========================
 
 
 function adicionarCarrinho(nome, preco, tipo){
 
 
-
-    // VIP = apenas um rank
+    // ==================
+    // VIP
+    // ==================
 
     if(tipo === "vip"){
 
 
-        carrinho = carrinho.filter(item => item.tipo !== "vip");
+        // remove qualquer VIP existente
+
+        carrinho = carrinho.filter(
+            item => item.tipo !== "vip"
+        );
 
 
+        // adiciona apenas 1 VIP
 
         carrinho.push({
 
-            nome:nome,
+            nome: nome,
 
-            preco:preco,
+            preco: preco,
 
-            tipo:"vip",
+            tipo: "vip",
 
-            quantidade:1
+            quantidade: 1
 
         });
 
 
-
-    } else {
-
-
-
-        // Serviços acumulam
-
-
-        let item = carrinho.find(produto => produto.nome === nome);
+    }
 
 
 
-        if(item){
+    // ==================
+    // SERVIÇOS
+    // ==================
+
+    else {
 
 
-            item.quantidade++;
+        let existente =
+        carrinho.find(
+            item => item.nome === nome
+        );
 
 
-        } else {
+
+        if(existente){
+
+
+            existente.quantidade++;
+
+
+        }
+
+
+        else {
 
 
             carrinho.push({
 
-                nome:nome,
+                nome: nome,
 
-                preco:preco,
+                preco: preco,
 
                 tipo:"servico",
 
@@ -208,14 +209,34 @@ function adicionarCarrinho(nome, preco, tipo){
 
 
 
+
+
+// ==========================
+// ALTERAR QUANTIDADE
+// ==========================
+
+
 function alterarQuantidade(nome, valor){
 
 
-    let item = carrinho.find(produto => produto.nome === nome);
+    let item =
+    carrinho.find(
+        produto => produto.nome === nome
+    );
 
 
 
     if(!item) return;
+
+
+
+    // VIP nunca passa de 1
+
+    if(item.tipo === "vip"){
+
+        return;
+
+    }
 
 
 
@@ -227,7 +248,9 @@ function alterarQuantidade(nome, valor){
 
 
         carrinho =
-        carrinho.filter(produto => produto.nome !== nome);
+        carrinho.filter(
+            produto => produto.nome !== nome
+        );
 
 
     }
@@ -243,16 +266,23 @@ function alterarQuantidade(nome, valor){
 
 
 
+
+
+// ==========================
+// REMOVER ITEM
+// ==========================
+
+
 function removerCarrinho(nome){
 
 
     carrinho =
-    carrinho.filter(item => item.nome !== nome);
-
+    carrinho.filter(
+        item => item.nome !== nome
+    );
 
 
     atualizarCarrinho();
-
 
 }
 
@@ -260,6 +290,11 @@ function removerCarrinho(nome){
 
 
 
+
+
+// ==========================
+// ATUALIZAR CARRINHO
+// ==========================
 
 
 function atualizarCarrinho(){
@@ -299,6 +334,7 @@ function atualizarCarrinho(){
 
         `;
 
+
     }
 
 
@@ -309,10 +345,13 @@ function atualizarCarrinho(){
 
 
 
-        valorTotal += item.preco * item.quantidade;
+        valorTotal +=
+        item.preco * item.quantidade;
 
 
-        quantidadeTotal += item.quantidade;
+
+        quantidadeTotal +=
+        item.quantidade;
 
 
 
@@ -322,9 +361,7 @@ function atualizarCarrinho(){
         <div class="cart-item">
 
 
-        <b>
-        ${item.nome}
-        </b>
+        <b>${item.nome}</b>
 
 
         <br><br>
@@ -332,18 +369,31 @@ function atualizarCarrinho(){
 
         Quantidade:
 
+        <br>
+
+
+        ${item.tipo === "servico" ? `
 
         <button onclick="alterarQuantidade('${item.nome}',-1)">
         ➖
         </button>
 
+        ` : ""}
+
+
 
         ${item.quantidade}
 
 
+
+        ${item.tipo === "servico" ? `
+
         <button onclick="alterarQuantidade('${item.nome}',1)">
         ➕
+
         </button>
+
+        ` : ""}
 
 
 
@@ -355,13 +405,12 @@ function atualizarCarrinho(){
         .replace(".",",")}
 
 
-
-        <br>
+        <br><br>
 
 
         <button onclick="removerCarrinho('${item.nome}')">
 
-        🗑 Remover tudo
+        🗑 Remover
 
         </button>
 
@@ -372,7 +421,9 @@ function atualizarCarrinho(){
         `;
 
 
+
     });
+
 
 
 
@@ -383,7 +434,10 @@ function atualizarCarrinho(){
 
     total.innerHTML =
     "Total: R$ " +
-    valorTotal.toFixed(2).replace(".",",");
+    valorTotal
+    .toFixed(2)
+    .replace(".",",");
+
 
 
 }
@@ -392,7 +446,15 @@ function atualizarCarrinho(){
 
 
 
+
+
+// ==========================
+// ABRIR / FECHAR CARRINHO
+// ==========================
+
+
 function abrirCarrinho(){
+
 
     document.getElementById("cart-panel")
     .style.right = "0px";
@@ -400,6 +462,7 @@ function abrirCarrinho(){
 
     document.getElementById("cart-overlay")
     .style.display = "block";
+
 
 }
 
@@ -409,6 +472,7 @@ function abrirCarrinho(){
 
 function fecharCarrinho(){
 
+
     document.getElementById("cart-panel")
     .style.right = "-450px";
 
@@ -416,13 +480,21 @@ function fecharCarrinho(){
     document.getElementById("cart-overlay")
     .style.display = "none";
 
+
 }
 
 
 
 
 
+
+// ==========================
+// CHECKOUT
+// ==========================
+
+
 function finalizarCompra(){
+
 
     alert("Checkout será conectado em breve!");
 
@@ -440,9 +512,11 @@ function finalizarCompra(){
 
 function copiarTexto(texto){
 
+
     navigator.clipboard.writeText(texto);
 
 
     alert("Copiado: " + texto);
+
 
 }
