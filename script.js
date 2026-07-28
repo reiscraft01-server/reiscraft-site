@@ -8,8 +8,11 @@ let carrinho = [];
 const kits = {
 
     deus: {
+
         titulo: "👑 VIP Deus",
+
         imagem: "assets/kit-deus.png",
+
         texto: `
         Kit Deus exclusivo<br><br>
         Full Netherite<br>
@@ -28,8 +31,11 @@ const kits = {
 
 
     rei: {
+
         titulo: "🏰 VIP Rei",
+
         imagem: "assets/kit-rei.png",
+
         texto: `
         Kit Rei exclusivo<br><br>
         Full Diamante<br>
@@ -45,8 +51,11 @@ const kits = {
 
 
     supremo: {
+
         titulo: "⚔ VIP Supremo",
+
         imagem: "assets/kit-supremo.png",
+
         texto: `
         Kit Supremo exclusivo<br><br>
         Full Netherite<br>
@@ -63,8 +72,11 @@ const kits = {
 
 
     guerreiro: {
+
         titulo: "🛡 VIP Guerreiro",
+
         imagem: "assets/kit-guerreiro.png",
+
         texto: `
         Kit Guerreiro exclusivo<br><br>
         Full Ferro<br>
@@ -81,19 +93,24 @@ const kits = {
 
 
 
+
 // ==========================
-// POPUP KIT
+// POPUP
 // ==========================
+
 
 function abrirInfo(vip){
 
     document.getElementById("popup").style.display = "flex";
 
+
     document.getElementById("tituloVip").innerHTML =
     kits[vip].titulo;
 
+
     document.getElementById("textoVip").innerHTML =
     kits[vip].texto;
+
 
     document.getElementById("imagemKit").src =
     kits[vip].imagem;
@@ -101,11 +118,13 @@ function abrirInfo(vip){
 }
 
 
+
 function fecharInfo(){
 
     document.getElementById("popup").style.display = "none";
 
 }
+
 
 
 
@@ -117,12 +136,14 @@ function fecharInfo(){
 function adicionarCarrinho(nome, preco, tipo){
 
 
+
+    // VIP = apenas um rank
+
     if(tipo === "vip"){
 
 
-        // Só permite um VIP
-
         carrinho = carrinho.filter(item => item.tipo !== "vip");
+
 
 
         carrinho.push({
@@ -138,19 +159,23 @@ function adicionarCarrinho(nome, preco, tipo){
         });
 
 
+
     } else {
+
 
 
         // Serviços acumulam
 
-        let itemExistente =
-        carrinho.find(item => item.nome === nome);
+
+        let item = carrinho.find(produto => produto.nome === nome);
 
 
 
-        if(itemExistente){
+        if(item){
 
-            itemExistente.quantidade++;
+
+            item.quantidade++;
+
 
         } else {
 
@@ -167,10 +192,12 @@ function adicionarCarrinho(nome, preco, tipo){
 
             });
 
+
         }
 
 
     }
+
 
 
     atualizarCarrinho();
@@ -179,13 +206,13 @@ function adicionarCarrinho(nome, preco, tipo){
 
 
 
-// aumentar ou diminuir quantidade
+
 
 function alterarQuantidade(nome, valor){
 
 
-    let item =
-    carrinho.find(produto => produto.nome === nome);
+    let item = carrinho.find(produto => produto.nome === nome);
+
 
 
     if(!item) return;
@@ -198,16 +225,20 @@ function alterarQuantidade(nome, valor){
 
     if(item.quantidade <= 0){
 
-        removerCarrinho(nome);
 
-        return;
+        carrinho =
+        carrinho.filter(produto => produto.nome !== nome);
+
 
     }
 
 
+
     atualizarCarrinho();
 
+
 }
+
 
 
 
@@ -219,9 +250,14 @@ function removerCarrinho(nome){
     carrinho.filter(item => item.nome !== nome);
 
 
+
     atualizarCarrinho();
 
+
 }
+
+
+
 
 
 
@@ -245,6 +281,7 @@ function atualizarCarrinho(){
     lista.innerHTML = "";
 
 
+
     let valorTotal = 0;
 
     let quantidadeTotal = 0;
@@ -254,17 +291,26 @@ function atualizarCarrinho(){
     if(carrinho.length === 0){
 
 
-        lista.innerHTML =
-        "<p>Seu baú está vazio.</p>";
+        lista.innerHTML = `
+
+        <p>
+        🗝️ Seu baú está vazio...
+        </p>
+
+        `;
 
     }
+
+
 
 
 
     carrinho.forEach(item => {
 
 
+
         valorTotal += item.preco * item.quantidade;
+
 
         quantidadeTotal += item.quantidade;
 
@@ -276,7 +322,9 @@ function atualizarCarrinho(){
         <div class="cart-item">
 
 
-        <b>${item.nome}</b>
+        <b>
+        ${item.nome}
+        </b>
 
 
         <br><br>
@@ -284,7 +332,8 @@ function atualizarCarrinho(){
 
         Quantidade:
 
-        <button onclick="alterarQuantidade('${item.nome}', -1)">
+
+        <button onclick="alterarQuantidade('${item.nome}',-1)">
         ➖
         </button>
 
@@ -292,9 +341,10 @@ function atualizarCarrinho(){
         ${item.quantidade}
 
 
-        <button onclick="alterarQuantidade('${item.nome}', 1)">
+        <button onclick="alterarQuantidade('${item.nome}',1)">
         ➕
         </button>
+
 
 
         <br><br>
@@ -305,12 +355,13 @@ function atualizarCarrinho(){
         .replace(".",",")}
 
 
-        <br><br>
+
+        <br>
 
 
         <button onclick="removerCarrinho('${item.nome}')">
 
-        🗑 Remover
+        🗑 Remover tudo
 
         </button>
 
@@ -329,6 +380,7 @@ function atualizarCarrinho(){
     quantidadeTotal;
 
 
+
     total.innerHTML =
     "Total: R$ " +
     valorTotal.toFixed(2).replace(".",",");
@@ -339,24 +391,33 @@ function atualizarCarrinho(){
 
 
 
+
 function abrirCarrinho(){
 
-    document.getElementById("cart-panel").style.right = "0px";
+    document.getElementById("cart-panel")
+    .style.right = "0px";
 
-    document.getElementById("cart-overlay").style.display = "block";
+
+    document.getElementById("cart-overlay")
+    .style.display = "block";
 
 }
+
 
 
 
 
 function fecharCarrinho(){
 
-    document.getElementById("cart-panel").style.right = "-450px";
+    document.getElementById("cart-panel")
+    .style.right = "-450px";
 
-    document.getElementById("cart-overlay").style.display = "none";
+
+    document.getElementById("cart-overlay")
+    .style.display = "none";
 
 }
+
 
 
 
@@ -370,6 +431,8 @@ function finalizarCompra(){
 
 
 
+
+
 // ==========================
 // COPIAR IP
 // ==========================
@@ -378,6 +441,7 @@ function finalizarCompra(){
 function copiarTexto(texto){
 
     navigator.clipboard.writeText(texto);
+
 
     alert("Copiado: " + texto);
 
