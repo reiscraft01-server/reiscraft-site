@@ -1,263 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!-- BOTÃO DO CARRINHO -->
 
-<head>
+<div id="cart-button" onclick="abrirCarrinho()">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Reis Craft | Minecraft Semi-Anarquia</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<img src="assets/logo.png" class="logo">
-
-
-<p>
-Servidor Minecraft Semi-Anarquia<br>
-Java + Bedrock
-</p>
-
-
-
-<div class="server-box">
-
-<h2>⚔ Entre no Reino</h2>
-
-
-<h3>Java Edition</h3>
-
-<p>
-reiscraft.online
-</p>
-
-
-<button onclick="copiarTexto('reiscraft.online')">
-📋 Copiar IP
-</button>
-
-
-
-<hr>
-
-
-
-<h3>Bedrock Edition</h3>
-
-<p>
-br-asc-01streethosting.com.br
-<br>
-Porta: 25586
-</p>
-
-
-<button onclick="copiarTexto('br-asc-01streethosting.com.br:25586')">
-📋 Copiar Bedrock
-</button>
-
+🛒 Baú (<span id="cart-count">0</span>)
 
 </div>
 
 
 
-<a href="https://discord.gg/EwkmdXvfQ" target="_blank">
 
-<button>
-🎮 Entrar no Discord
-</button>
 
-</a>
+<!-- CARRINHO LATERAL -->
 
-
-</header>
-
-
-
-
-
-<section>
-
-<h2>Sobre o Reis Craft</h2>
-
-
-<p>
-
-Um servidor semi-anarquia onde suas escolhas definem sua história.
-
-<br><br>
-
-Construa, lute, faça alianças ou siga sozinho.
-
-<br>
-
-O mundo pertence aos jogadores.
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section>
-
-
-<h2>👑 Loja VIP ReisCraft</h2>
-
-
-<p>
-Escolha seu rank e conquiste vantagens exclusivas dentro do reino.
-</p>
-
-
-
-
-
-<div class="vip">
-
-<div class="vip-image-box">
-
-<img src="assets/vip-deus.png" class="vip-img">
-
-</div>
-
-
-<h3>👑 VIP Deus</h3>
-
-<h4>R$ 48,99</h4>
-
-
-<button onclick="adicionarCarrinho('VIP Deus',48.99,'vip')">
-🛒 Adicionar ao carrinho
-</button>
-
-
-<button class="info-btn" onclick="abrirInfo('deus')">
-📜 Saiba mais
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="vip">
-
-<div class="vip-image-box">
-
-<img src="assets/vip-rei.png" class="vip-img">
-
-</div>
-
-
-<h3>🏰 VIP Rei</h3>
-
-<h4>R$ 8,99</h4>
-
-
-<button onclick="adicionarCarrinho('VIP Rei',8.99,'vip')">
-🛒 Adicionar ao carrinho
-</button>
-
-
-<button class="info-btn" onclick="abrirInfo('rei')">
-📜 Saiba mais
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="vip">
-
-<div class="vip-image-box">
-
-<img src="assets/vip-supremo.png" class="vip-img">
-
-</div>
-
-
-<h3>⚔ VIP Supremo</h3>
-
-<h4>R$ 18,99</h4>
-
-
-<button onclick="adicionarCarrinho('VIP Supremo',18.99,'vip')">
-🛒 Adicionar ao carrinho
-</button>
-
-
-<button class="info-btn" onclick="abrirInfo('supremo')">
-📜 Saiba mais
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="vip">
-
-<div class="vip-image-box">
-
-<img src="assets/vip-guerreiro.png" class="vip-img">
-
-</div>
-
-
-<h3>🛡 VIP Guerreiro</h3>
-
-<h4>R$ 5,99</h4>
-
-
-<button onclick="adicionarCarrinho('VIP Guerreiro',5.99,'vip')">
-🛒 Adicionar ao carrinho
-</button>
-
-
-<button class="info-btn" onclick="abrirInfo('guerreiro')">
-📜 Saiba mais
-</button>
-
-
-</div>
-
-
-</section>
 <div id="cart-panel">
 
 
 <div class="cart-header">
 
-<h2>🛒 Seu Carrinho</h2>
+
+<h2>
+🏰 Baú do Reino
+</h2>
+
 
 <span onclick="fecharCarrinho()" class="close-cart">
 
@@ -265,18 +29,41 @@ Escolha seu rank e conquiste vantagens exclusivas dentro do reino.
 
 </span>
 
+
 </div>
+
+
+
+
+
+<div class="cart-decoration">
+
+⚔ Seus itens selecionados ⚔
+
+</div>
+
+
 
 
 
 <div id="cart-items">
 
+
 <p>
-Seu carrinho está vazio.
+
+🗝️ Seu baú está vazio...
+
 </p>
+
 
 </div>
 
+
+
+
+
+
+<div class="cart-summary">
 
 
 <h3 id="cart-total">
@@ -287,11 +74,38 @@ Total: R$ 0,00
 
 
 
+<p class="cart-warning">
+
+Após a confirmação do pagamento,
+seus benefícios serão enviados para seu personagem.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
 <button onclick="finalizarCompra()">
 
-Finalizar compra
+💰 Finalizar compra
 
 </button>
 
 
+
+
 </div>
+
+
+
+
+
+
+<!-- FUNDO DO CARRINHO -->
+
+
+<div id="cart-overlay" onclick="fecharCarrinho()"></div>
