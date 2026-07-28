@@ -2,9 +2,9 @@ body {
     margin: 0;
     padding: 0;
     background-image: linear-gradient(
-    rgba(0,0,0,0.35),
-    rgba(0,0,0,0.55)
-), url("assets/background.jpg");
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.55)
+    ), url("assets/background.jpg");
 
     background-size: cover;
     background-position: center;
@@ -14,7 +14,6 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
-
 
 /* Cabeçalho */
 
