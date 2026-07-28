@@ -94,8 +94,6 @@ Porta: 25586
 
 
 
-
-
 <section>
 
 
@@ -124,7 +122,6 @@ O mundo pertence aos jogadores.
 
 
 
-
 <section>
 
 
@@ -132,10 +129,9 @@ O mundo pertence aos jogadores.
 
 
 <p>
-
 Escolha seu rank e conquiste vantagens exclusivas dentro do reino.
-
 </p>
+
 
 
 
@@ -156,9 +152,9 @@ Escolha seu rank e conquiste vantagens exclusivas dentro do reino.
 <h4>R$ 48,99</h4>
 
 
-<button>
+<button onclick="adicionarCarrinho('VIP Deus',48.99,'vip')">
 
-Comprar
+🛒 Adicionar ao carrinho
 
 </button>
 
@@ -171,7 +167,6 @@ Comprar
 
 
 </div>
-
 
 
 
@@ -194,9 +189,9 @@ Comprar
 <h4>R$ 8,99</h4>
 
 
-<button>
+<button onclick="adicionarCarrinho('VIP Rei',8.99,'vip')">
 
-Comprar
+🛒 Adicionar ao carrinho
 
 </button>
 
@@ -209,13 +204,6 @@ Comprar
 
 
 </div>
-
-
-
-
-
-
-
 <div class="vip">
 
 
@@ -232,9 +220,9 @@ Comprar
 <h4>R$ 18,99</h4>
 
 
-<button>
+<button onclick="adicionarCarrinho('VIP Supremo',18.99,'vip')">
 
-Comprar
+🛒 Adicionar ao carrinho
 
 </button>
 
@@ -270,9 +258,9 @@ Comprar
 <h4>R$ 5,99</h4>
 
 
-<button>
+<button onclick="adicionarCarrinho('VIP Guerreiro',5.99,'vip')">
 
-Comprar
+🛒 Adicionar ao carrinho
 
 </button>
 
@@ -290,10 +278,17 @@ Comprar
 
 </section>
 
+
+
+
+
+
+
 <section>
 
 
 <h2>Serviços</h2>
+
 
 
 
@@ -315,20 +310,21 @@ Comprar
 
 
 <p>
+
 Adicione um novo ponto de teleporte
 para facilitar sua sobrevivência.
+
 </p>
 
 
-<button>
+<button onclick="adicionarCarrinho('Home Adicional',2.50,'servico')">
 
-Comprar
+🛒 Adicionar ao carrinho
 
 </button>
 
 
 </div>
-
 
 
 
@@ -353,13 +349,15 @@ Comprar
 
 
 <p>
+
 Recupere seu acesso e volte para o reino.
+
 </p>
 
 
-<button>
+<button onclick="adicionarCarrinho('Seja desbanido',49.99,'servico')">
 
-Comprar
+🛒 Adicionar ao carrinho
 
 </button>
 
@@ -377,6 +375,82 @@ Comprar
 
 
 
+<!-- BOTÃO DO CARRINHO -->
+
+
+<div id="cart-button" onclick="abrirCarrinho()">
+
+🛒 Carrinho (<span id="cart-count">0</span>)
+
+</div>
+
+
+
+
+
+
+
+
+<!-- CARRINHO LATERAL -->
+
+
+<div id="cart-panel">
+
+
+<div class="cart-header">
+
+<h2>🛒 Seu Carrinho</h2>
+
+<span onclick="fecharCarrinho()" class="close-cart">
+
+✖
+
+</span>
+
+</div>
+
+
+
+<div id="cart-items">
+
+<p>
+Seu carrinho está vazio.
+</p>
+
+</div>
+
+
+
+<h3 id="cart-total">
+
+Total: R$ 0,00
+
+</h3>
+
+
+
+<button onclick="finalizarCompra()">
+
+Finalizar compra
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- FUNDO ESCURO DO CARRINHO -->
+
+
+<div id="cart-overlay" onclick="fecharCarrinho()"></div>
+<!-- POPUP SAIBA MAIS -->
+
 <div id="popup" class="popup">
 
 
@@ -393,6 +467,9 @@ Comprar
 <h2 id="tituloVip"></h2>
 
 
+<img id="imagemKit" class="kit-img">
+
+
 <p id="textoVip"></p>
 
 
@@ -400,7 +477,6 @@ Comprar
 
 
 </div>
-
 
 
 
