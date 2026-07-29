@@ -25,7 +25,6 @@ const checkouts = {
 
 const kits = {
 
-
     ferro: {
 
         titulo: "🛡 VIP Ferro",
@@ -33,18 +32,18 @@ const kits = {
         imagem: "assets/kit-guerreiro.png",
 
         texto: `
-        Kit Ferro exclusivo<br><br>
+        <b>Kit Ferro exclusivo</b><br><br>
 
-        Full Ferro - Proteção IV<br>
-        Escudo - Inquebrável III<br>
-        Ferramentas - Eficiência IV e Afiação IV<br><br>
+        🛡 Full Ferro - Proteção IV<br>
+        🛡 Escudo - Inquebrável III<br>
+        ⚔ Ferramentas - Eficiência IV e Afiação IV<br><br>
 
-        4x Totem<br>
-        32x Ender Pearls<br>
+        🎁 Recompensas:<br>
+        4x Totem da Imortalidade<br>
+        32x Pérola do End<br>
         64x Filé<br>
         16x Maçã Dourada
         `
-
     },
 
 
@@ -55,20 +54,20 @@ const kits = {
         imagem: "assets/kit-supremo.png",
 
         texto: `
-        Kit Diamante exclusivo<br><br>
+        <b>Kit Diamante exclusivo</b><br><br>
 
-        Full Diamante - Proteção III<br>
-        Escudo - Inquebrável III<br>
-        Ferramentas - Eficiência III e Afiação III<br><br>
+        💎 Full Diamante - Proteção III<br>
+        🛡 Escudo - Inquebrável III<br>
+        ⚔ Ferramentas - Eficiência III e Afiação III<br><br>
 
+        🎁 Recompensas:<br>
         12x Maçã Dourada<br>
-        32x Ender Pearls<br>
+        32x Pérola do End<br>
         16x Diamantes<br>
         3x Maçã Dourada Encantada<br>
         1x Melhoria de Netherita<br>
         64x Filé
         `
-
     },
 
 
@@ -79,24 +78,23 @@ const kits = {
         imagem: "assets/kit-rei.png",
 
         texto: `
-        Kit Netherite exclusivo<br><br>
+        <b>Kit Netherite exclusivo</b><br><br>
 
-        Full Netherite - Proteção IV<br>
-        Escudo - Inquebrável III<br>
-        Ferramentas - Eficiência IV e Afiação IV<br><br>
+        ⚫ Full Netherite - Proteção IV<br>
+        🛡 Escudo - Inquebrável III<br>
+        ⚔ Ferramentas - Eficiência IV e Afiação IV<br><br>
 
-        Mace<br>
-        Lança de Netherite Encantada<br>
+        🔥 Mace<br>
+        ⚔ Lança de Netherite Encantada<br>
         7x Cristal do End<br>
         5x Maçã Dourada Encantada<br>
         20x Maçã Dourada<br>
-        64x Ender Pearls<br>
+        64x Pérola do End<br>
         5 Packs de Foguete<br>
         16x Obsidian<br>
         5x Totem da Imortalidade<br>
         1x Élitro
         `
-
     },
 
 
@@ -107,15 +105,16 @@ const kits = {
         imagem: "assets/kit-deus.png",
 
         texto: `
-        Kit Rei exclusivo<br><br>
+        <b>Kit Rei exclusivo</b><br><br>
 
-        Full Netherite - Full Enchant<br>
-        Escudo - Full Enchant<br>
-        Ferramentas - Eficiência V e Afiação V<br><br>
+        👑 Full Netherite - Full Enchant<br>
+        🛡 Escudo - Full Enchant<br>
+        ⚔ Ferramentas - Eficiência V e Afiação V<br><br>
 
+        🎁 Recompensas:<br>
         32x Maçã Dourada<br>
         10x Maçã Dourada Encantada<br>
-        32x Ender Pearls<br>
+        32x Pérola do End<br>
         5 Packs de Foguete<br>
         32x Obsidian<br>
         10x Totem da Imortalidade<br>
@@ -124,8 +123,9 @@ const kits = {
         Lança Full Enchant<br>
         16x Cristal do End
         `
-
     }
+
+};
 
 
 };
