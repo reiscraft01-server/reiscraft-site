@@ -2,25 +2,7 @@ let carrinho = [];
 
 
 // ==========================
-// LINKS CHECKOUT KIWIFY
-// ==========================
-
-const checkouts = {
-
-    "VIP Ferro": "https://pay.kiwify.com.br/gpyhFQP",
-
-    "VIP Diamante": "https://pay.kiwify.com.br/uAo0Jjq",
-
-    "VIP Netherite": "https://pay.kiwify.com.br/LEdePY7",
-
-    "VIP Rei": "https://pay.kiwify.com.br/6szJbGi"
-
-};
-
-
-
-// ==========================
-// KITS VIP
+// KITS VIP - SAIBA MAIS
 // ==========================
 
 const kits = {
@@ -44,6 +26,7 @@ const kits = {
         64x Filé<br>
         16x Maçã Dourada
         `
+
     },
 
 
@@ -68,6 +51,7 @@ const kits = {
         1x Melhoria de Netherita<br>
         64x Filé
         `
+
     },
 
 
@@ -95,6 +79,7 @@ const kits = {
         5x Totem da Imortalidade<br>
         1x Élitro
         `
+
     },
 
 
@@ -123,10 +108,8 @@ const kits = {
         Lança Full Enchant<br>
         16x Cristal do End
         `
+
     }
-
-};
-
 
 };
 
@@ -165,25 +148,26 @@ function fecharInfo(){
 
 
 
-
 // ==========================
-// ADICIONAR AO CARRINHO
+// CARRINHO (SERVIÇOS)
 // ==========================
 
 
 function adicionarCarrinho(nome, preco, tipo){
 
 
-    let ehVip =
-    tipo === "vip" ||
-    nome.toLowerCase().includes("vip");
+    let produto =
+    carrinho.find(item => item.nome === nome);
 
 
 
-    if(ehVip){
+    if(produto){
 
+        produto.quantidade++;
 
-        carrinho = carrinho.filter(item => item.tipo !== "vip");
+    }
+
+    else {
 
 
         carrinho.push({
@@ -192,47 +176,13 @@ function adicionarCarrinho(nome, preco, tipo){
 
             preco:preco,
 
-            tipo:"vip",
+            tipo:tipo,
 
             quantidade:1
 
         });
 
-
     }
-
-    else {
-
-
-        let produto =
-        carrinho.find(item => item.nome === nome);
-
-
-
-        if(produto){
-
-            produto.quantidade++;
-
-        }
-
-        else {
-
-            carrinho.push({
-
-                nome:nome,
-
-                preco:preco,
-
-                tipo:"servico",
-
-                quantidade:1
-
-            });
-
-        }
-
-    }
-
 
 
     atualizarCarrinho();
@@ -252,14 +202,6 @@ function alterarQuantidade(nome, valor){
 
 
     if(!produto) return;
-
-
-
-    if(produto.tipo === "vip"){
-
-        return;
-
-    }
 
 
 
@@ -286,7 +228,6 @@ function alterarQuantidade(nome, valor){
 
 
 
-
 // ==========================
 // REMOVER ITEM
 // ==========================
@@ -295,13 +236,13 @@ function alterarQuantidade(nome, valor){
 function removerCarrinho(nome){
 
 
-    carrinho = carrinho.filter(item => item.nome !== nome);
+    carrinho =
+    carrinho.filter(item => item.nome !== nome);
 
 
     atualizarCarrinho();
 
 }
-
 
 
 
@@ -327,6 +268,10 @@ function atualizarCarrinho(){
 
     let total =
     document.getElementById("cart-total");
+
+
+
+    if(!lista) return;
 
 
 
@@ -370,35 +315,12 @@ function atualizarCarrinho(){
 
 
 
-        if(item.nome.includes("VIP Rei")){
-
-            imagem = "assets/vip-deus.png";
-
-        }
-
-        else if(item.nome.includes("VIP Netherite")){
-
-            imagem = "assets/vip-rei.png";
-
-        }
-
-        else if(item.nome.includes("VIP Diamante")){
-
-            imagem = "assets/vip-supremo.png";
-
-        }
-
-        else if(item.nome.includes("VIP Ferro")){
-
-            imagem = "assets/vip-guerreiro.png";
-
-        }
-
-        else if(item.nome.includes("Home")){
+        if(item.nome.includes("Home")){
 
             imagem = "assets/home.png";
 
         }
+
 
         else if(item.nome.includes("desban")){
 
@@ -433,15 +355,9 @@ function atualizarCarrinho(){
             ${item.quantidade}
 
 
+
             <br><br>
 
-
-            ${
-            item.tipo === "servico"
-
-            ?
-
-            `
 
             <button onclick="alterarQuantidade('${item.nome}',-1)">
             ➖
@@ -452,14 +368,6 @@ function atualizarCarrinho(){
             ➕
             </button>
 
-            `
-
-            :
-
-            ""
-
-            }
-
 
             <br><br>
 
@@ -468,6 +376,7 @@ function atualizarCarrinho(){
             ${(item.preco * item.quantidade)
             .toFixed(2)
             .replace(".",",")}
+
 
 
             <br><br>
@@ -480,6 +389,7 @@ function atualizarCarrinho(){
             </button>
 
 
+
         </div>
 
 
@@ -490,17 +400,23 @@ function atualizarCarrinho(){
 
 
 
-    contador.innerHTML = quantidade;
+    if(contador){
+
+        contador.innerHTML = quantidade;
+
+    }
 
 
 
-    total.innerHTML =
+    if(total){
 
-    "Total: R$ " +
+        total.innerHTML =
+        "Total: R$ " +
+        valorTotal
+        .toFixed(2)
+        .replace(".",",");
 
-    valorTotal
-    .toFixed(2)
-    .replace(".",",");
+    }
 
 
 }
@@ -531,7 +447,6 @@ function abrirCarrinho(){
 
 
 
-
 function fecharCarrinho(){
 
 
@@ -551,9 +466,8 @@ function fecharCarrinho(){
 
 
 
-
 // ==========================
-// FINALIZAR COMPRA KIWIFY
+// FINALIZAR COMPRA
 // ==========================
 
 
@@ -562,6 +476,7 @@ function finalizarCompra(){
 
     if(carrinho.length === 0){
 
+
         alert("Seu baú está vazio!");
 
         return;
@@ -569,36 +484,7 @@ function finalizarCompra(){
     }
 
 
-
-    let vip = carrinho.find(item => item.tipo === "vip");
-
-
-
-    if(!vip){
-
-        alert("Selecione um VIP para finalizar a compra.");
-
-        return;
-
-    }
-
-
-
-    if(checkouts[vip.nome]){
-
-
-        window.location.href = checkouts[vip.nome];
-
-
-    }
-
-    else{
-
-
-        alert("Checkout não encontrado.");
-
-    }
-
+    alert("Os serviços serão processados pela equipe Reis Craft.");
 
 }
 
