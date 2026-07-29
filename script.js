@@ -2,6 +2,24 @@ let carrinho = [];
 
 
 // ==========================
+// LINKS CHECKOUT KIWIFY
+// ==========================
+
+const checkouts = {
+
+    "VIP Ferro": "https://pay.kiwify.com.br/gpyhFQP",
+
+    "VIP Diamante": "https://pay.kiwify.com.br/uAo0Jjq",
+
+    "VIP Netherite": "https://pay.kiwify.com.br/LEdePY7",
+
+    "VIP Rei": "https://pay.kiwify.com.br/6szJbGi"
+
+};
+
+
+
+// ==========================
 // KITS VIP
 // ==========================
 
@@ -17,17 +35,17 @@ const kits = {
         texto: `
         Kit Ferro exclusivo<br><br>
 
-        Full Ferro<br>
-        Escudo<br>
-        Proteção IV<br>
-        Inquebrável III<br>
-        32 Ender Pearls<br>
-        64 Bifes<br>
-        16 Maçãs Douradas
+        Full Ferro - Proteção IV<br>
+        Escudo - Inquebrável III<br>
+        Ferramentas - Eficiência IV e Afiação IV<br><br>
+
+        4x Totem<br>
+        32x Ender Pearls<br>
+        64x Filé<br>
+        16x Maçã Dourada
         `
 
     },
-
 
 
     diamante: {
@@ -39,18 +57,19 @@ const kits = {
         texto: `
         Kit Diamante exclusivo<br><br>
 
-        Full Diamante<br>
-        Proteção IV<br>
-        Inquebrável III<br>
-        Escudo<br>
-        32 Ender Pearls<br>
-        64 Bifes<br>
-        12 Maçãs Douradas<br>
-        1 Maçã Dourada Encantada
+        Full Diamante - Proteção III<br>
+        Escudo - Inquebrável III<br>
+        Ferramentas - Eficiência III e Afiação III<br><br>
+
+        12x Maçã Dourada<br>
+        32x Ender Pearls<br>
+        16x Diamantes<br>
+        3x Maçã Dourada Encantada<br>
+        1x Melhoria de Netherita<br>
+        64x Filé
         `
 
     },
-
 
 
     netherite: {
@@ -62,19 +81,23 @@ const kits = {
         texto: `
         Kit Netherite exclusivo<br><br>
 
-        Full Netherite<br>
-        Proteção IV<br>
-        Inquebrável III<br>
-        Escudo<br>
-        64 Ender Pearls<br>
-        64 Bifes<br>
-        48 Maçãs Douradas<br>
-        2 Maçãs Douradas Encantadas<br>
-        2 Tokens Imortalidade
+        Full Netherite - Proteção IV<br>
+        Escudo - Inquebrável III<br>
+        Ferramentas - Eficiência IV e Afiação IV<br><br>
+
+        Mace<br>
+        Lança de Netherite Encantada<br>
+        7x Cristal do End<br>
+        5x Maçã Dourada Encantada<br>
+        20x Maçã Dourada<br>
+        64x Ender Pearls<br>
+        5 Packs de Foguete<br>
+        16x Obsidian<br>
+        5x Totem da Imortalidade<br>
+        1x Élitro
         `
 
     },
-
 
 
     rei: {
@@ -86,23 +109,29 @@ const kits = {
         texto: `
         Kit Rei exclusivo<br><br>
 
-        Full Netherite<br>
-        Proteção IV<br>
-        Inquebrável III<br>
-        Elytra<br>
-        64 Obsidians<br>
-        10 Tokens Imortalidade<br>
-        5x 64 Foguetes<br>
-        80 Ender Pearls<br>
-        32 Maçãs Douradas Encantadas<br>
-        15 Maçãs Douradas<br>
-        64 Cristais do Fim
+        Full Netherite - Full Enchant<br>
+        Escudo - Full Enchant<br>
+        Ferramentas - Eficiência V e Afiação V<br><br>
+
+        32x Maçã Dourada<br>
+        10x Maçã Dourada Encantada<br>
+        32x Ender Pearls<br>
+        5 Packs de Foguete<br>
+        32x Obsidian<br>
+        10x Totem da Imortalidade<br>
+        1x Élitro Full Enchant<br>
+        Mace Full Enchant<br>
+        Lança Full Enchant<br>
+        16x Cristal do End
         `
 
     }
 
 
 };
+
+
+
 // ==========================
 // POPUP SAIBA MAIS
 // ==========================
@@ -136,6 +165,7 @@ function fecharInfo(){
 
 
 
+
 // ==========================
 // ADICIONAR AO CARRINHO
 // ==========================
@@ -150,17 +180,10 @@ function adicionarCarrinho(nome, preco, tipo){
 
 
 
-    // ==================
-    // VIP
-    // ==================
-
     if(ehVip){
 
 
-        // remove qualquer VIP anterior
-
         carrinho = carrinho.filter(item => item.tipo !== "vip");
-
 
 
         carrinho.push({
@@ -178,12 +201,6 @@ function adicionarCarrinho(nome, preco, tipo){
 
     }
 
-
-
-    // ==================
-    // SERVIÇOS
-    // ==================
-
     else {
 
 
@@ -194,12 +211,11 @@ function adicionarCarrinho(nome, preco, tipo){
 
         if(produto){
 
-
             produto.quantidade++;
 
+        }
 
-        } else {
-
+        else {
 
             carrinho.push({
 
@@ -213,9 +229,7 @@ function adicionarCarrinho(nome, preco, tipo){
 
             });
 
-
         }
-
 
     }
 
@@ -223,15 +237,7 @@ function adicionarCarrinho(nome, preco, tipo){
 
     atualizarCarrinho();
 
-
 }
-
-
-
-
-
-
-
 // ==========================
 // ALTERAR QUANTIDADE
 // ==========================
@@ -263,7 +269,6 @@ function alterarQuantidade(nome, valor){
 
     if(produto.quantidade <= 0){
 
-
         removerCarrinho(nome);
 
         return;
@@ -274,9 +279,7 @@ function alterarQuantidade(nome, valor){
 
     atualizarCarrinho();
 
-
 }
-
 
 
 
@@ -297,8 +300,15 @@ function removerCarrinho(nome){
 
     atualizarCarrinho();
 
-
 }
+
+
+
+
+
+
+
+
 // ==========================
 // ATUALIZAR CARRINHO
 // ==========================
@@ -340,7 +350,6 @@ function atualizarCarrinho(){
         </p>
 
         `;
-
 
     }
 
@@ -406,12 +415,10 @@ function atualizarCarrinho(){
         <div class="cart-item">
 
 
-
             <img 
             src="${imagem}"
             class="cart-product-img"
             >
-
 
 
             <b>
@@ -419,18 +426,14 @@ function atualizarCarrinho(){
             </b>
 
 
-
             <br><br>
-
 
 
             Quantidade:
             ${item.quantidade}
 
 
-
             <br><br>
-
 
 
             ${
@@ -449,7 +452,6 @@ function atualizarCarrinho(){
             ➕
             </button>
 
-
             `
 
             :
@@ -459,9 +461,7 @@ function atualizarCarrinho(){
             }
 
 
-
             <br><br>
-
 
 
             💰 R$
@@ -470,9 +470,7 @@ function atualizarCarrinho(){
             .replace(".",",")}
 
 
-
             <br><br>
-
 
 
             <button onclick="removerCarrinho('${item.nome}')">
@@ -482,12 +480,10 @@ function atualizarCarrinho(){
             </button>
 
 
-
         </div>
 
 
         `;
-
 
 
     });
@@ -507,9 +503,7 @@ function atualizarCarrinho(){
     .replace(".",",");
 
 
-
 }
-
 
 
 
@@ -529,7 +523,6 @@ function abrirCarrinho(){
     .style.right = "0px";
 
 
-
     document.getElementById("cart-overlay")
     .style.display = "block";
 
@@ -539,13 +532,11 @@ function abrirCarrinho(){
 
 
 
-
 function fecharCarrinho(){
 
 
     document.getElementById("cart-panel")
     .style.right = "-450px";
-
 
 
     document.getElementById("cart-overlay")
@@ -562,7 +553,7 @@ function fecharCarrinho(){
 
 
 // ==========================
-// FINALIZAR COMPRA
+// FINALIZAR COMPRA KIWIFY
 // ==========================
 
 
@@ -579,7 +570,35 @@ function finalizarCompra(){
 
 
 
-    alert("Checkout será conectado em breve!");
+    let vip = carrinho.find(item => item.tipo === "vip");
+
+
+
+    if(!vip){
+
+        alert("Selecione um VIP para finalizar a compra.");
+
+        return;
+
+    }
+
+
+
+    if(checkouts[vip.nome]){
+
+
+        window.location.href = checkouts[vip.nome];
+
+
+    }
+
+    else{
+
+
+        alert("Checkout não encontrado.");
+
+    }
+
 
 }
 
